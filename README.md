@@ -1,4 +1,4 @@
-dot_emacs_dot_d
+~/.emacs.d
 ===============
 
 Vishal's custom Emacs setup and config
