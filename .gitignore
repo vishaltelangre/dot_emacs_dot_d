@@ -1,0 +1,6 @@
+*~
+*.elc
+tmp/*
+etc/emacs-custom.el
+/tramp
+/elpa
