@@ -2,16 +2,48 @@
 ;; ----- smex-history -----
 (
  eval-buffer
+ windmove-right
+ temp-buffer-resize-mode
  package-install
- cd
- 5x5
- arp
- dbx
- dig
+ package-refresh-contents
+ magit-status
+ goto-line
 )
 
 ;; ----- smex-data -----
 (
- (package-install . 1)
- (eval-buffer . 1)
+ (package-install . 7)
+ (eval-buffer . 23)
+ (magit-status . 25)
+ (diff-backup . 1)
+ (magit-push . 1)
+ (list-directory . 2)
+ (rinari-launch . 1)
+ (rinari-minor-mode . 11)
+ (rinari-find-controller . 1)
+ (dired-create-directory . 1)
+ (package-refresh-contents . 6)
+ (dired-goto-file . 1)
+ (rinari-console . 1)
+ (rvm-use . 2)
+ (goto-line . 8)
+ (toggle-truncate-lines . 4)
+ (magit-diff . 1)
+ (magit-ediff . 1)
+ (comment-indent-new-line . 1)
+ (comment-box . 1)
+ (magit-stage-item . 1)
+ (diff-apply-hunk . 1)
+ (magit-reset-head . 1)
+ (esk-sudo-edit . 7)
+ (indent-new-comment-line . 1)
+ (toggle-word-wrap . 3)
+ (javascript-mode . 2)
+ (rename-file . 2)
+ (rinari-insert-erb-skeleton . 1)
+ (auto-revert-tail-mode . 1)
+ (temp-buffer-resize-mode . 1)
+ (windmove-right . 1)
+ (buf-move-left . 1)
+ (buf-move-down . 1)
 )

@@ -4,3 +4,6 @@ tmp/*
 etc/emacs-custom.el
 /tramp
 /elpa
+places
+.smex-items
+url/*

@@ -31,7 +31,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit starter-kit-defuns starter-kit-lisp starter-kit-bindings starter-kit-eshell starter-kit-js starter-kit-ruby ruby-compilation ruby-hash-syntax rubyinterpol ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block company-inf-ruby inf-ruby ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block rinari)
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell starter-kit-js starter-kit-ruby ruby-compilation ruby-hash-syntax rubyinterpol ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block company-inf-ruby inf-ruby ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block rinari buffer-move yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -139,3 +139,18 @@
                :features yaml-mode
                :after (lambda () (yaml-mode-hook)))))
 (el-get 'sync)
+
+
+;; Buffer mode custom keybindings
+;; TODO: keybindings are not working for buffer mode
+(require 'buffer-move)
+(global-set-key (kbd "C-S-<up>")     'buf-move-up)
+(global-set-key (kbd "C-S-<down>")   'buf-move-down)
+(global-set-key (kbd "C-S-<left>")   'buf-move-left)
+(global-set-key (kbd "C-S-<right>")  'buf-move-right)
+
+;; Recent file history (http://stackoverflow.com/a/3527488/1052356)
+(require 'recentf)
+(recentf-mode 1)
+(global-set-key "\C-xf" 'recentf-open-files)
+(setq recentf-auto-cleanup 'never)
