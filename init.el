@@ -18,9 +18,15 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+
 ;; Font settings
 (set-default-font "consolas")
 (set-face-attribute 'default nil :height 180) ;; font-size: 18px
+
+
+;; Load color theme
+(package-initialize)
+(load-theme 'solarized-dark t)
 
 ;; Package Manager ;;
 
@@ -35,7 +41,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell starter-kit-js starter-kit-ruby ruby-compilation ruby-hash-syntax rubyinterpol ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block company-inf-ruby inf-ruby ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block rinari buffer-move yaml-mode workgroups)
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell starter-kit-js starter-kit-ruby ruby-compilation ruby-hash-syntax rubyinterpol ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block company-inf-ruby inf-ruby ruby-mode ruby-test-mode ruby-end ruby-tools ruby-block rinari buffer-move yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -55,6 +61,7 @@
       kept-new-versions 6
       kept-old-versions 2
       version-control t)
+
 
 ;; Ruby-developement modes
 
@@ -79,6 +86,14 @@
   (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
   (add-hook 'rhtml-mode '(lambda ()
                            (define-key rhtml-mode-map (kbd "M-s") 'save-buffer))))
+
+(defun haml-mode-hook ()
+  (autoload 'haml-mode "haml-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))
+  (add-hook 'haml-mode-hook
+	    (lambda ()
+	      (setq indent-tabs-mode nil)
+	      (define-key haml-mode-map "\C-m" 'newline-and-indent))))
 
 (defun yaml-mode-hook ()
   (autoload 'yaml-mode "yaml-mode" nil t)
