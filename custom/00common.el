@@ -26,11 +26,18 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(blink-cursor-mode t)
 (show-paren-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
 (global-linum-mode t)
+
+;; change cursor shape
+(setq cursor-type 'box)
+(setq cursor-type 'bar)
+
+(blink-cursor-mode t)
+;; highlight current line
+(global-hl-line-mode t)
 
 ;; Turn off mouse interface early in startup to avoid momentary
 ;; display
