@@ -6,6 +6,7 @@
 (depends-on "adaptive-wrap")
 (depends-on "ag")
 (depends-on "auto-complete")
+(depends-on "buffer-move")
 (depends-on "calfw")
 (depends-on "cask")
 (depends-on "color-theme")
