@@ -10,3 +10,8 @@ places
 /.smex-items
 url/*
 extra/*
+ac-comphist.dat
+projectile-bookmarks.eld
+projectile.cache
+.cask
+.cask/*

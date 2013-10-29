@@ -3,7 +3,11 @@
 (cask-initialize)
 (require 'pallet)
 (add-to-list 'load-path "~/.emacs.d/custom")
+(add-to-list 'load-path "~/.emacs.d/vendor")
+;; (add-to-list 'load-path "~/.emacs.d/vendor/blah_package")
 (add-to-list 'load-path "~/.emacs.d/extra")
+
+;; (require 'blah_package)
 
 ;; Don't place this file in version control
 (load '"extra.el")

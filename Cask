@@ -57,6 +57,7 @@
 (depends-on "soft-morning-theme")
 (depends-on "sr-speedbar")
 (depends-on "tabbar")
+(depends-on "twittering-mode")
 (depends-on "w3m")
 (depends-on "web-mode")
 (depends-on "wrap-region")
