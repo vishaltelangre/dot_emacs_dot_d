@@ -106,7 +106,6 @@
 ;;*********************
 
 ;; Font settings
-(set-default-font "Consolas for Powerline FixedD")
 (set-face-attribute 'default nil :height 140) ;; font-size: 14px
 
 
