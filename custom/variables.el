@@ -147,3 +147,8 @@
 (desktop-save-mode 1)
 
 ;;*********************
+
+;; Display modifications in gutter-region to git-versioned files
+(global-git-gutter-mode +1)
+
+;;*********************
