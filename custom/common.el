@@ -4,101 +4,7 @@
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 175))
 
-;; To get rid of Weird color escape sequences in Emacs.
-;; Instruct Emacs to use emacs term-info not system term info
-;; http://stackoverflow.com/questions/8918910/weird-character-zsh-in-emacs-terminal
-(setq system-uses-terminfo nil)
-
-;; Prefer utf-8 encoding
-(prefer-coding-system 'utf-8)
-
-;; Use windmove bindings
-;; Navigate between windows using Alt-1, Alt-2, Shift-left, shift-up, shift-right
-(windmove-default-keybindings)
-
-;; Do not use tabs for indentation
-(setq-default indent-tabs-mode nil)
-(menu-bar-mode t)
-
-(setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-(setq inhibit-startup-message t)
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(show-paren-mode t)
-(column-number-mode t)
-(delete-selection-mode t)
-(global-linum-mode t)
-
-;; change cursor shape
-(setq cursor-type 'box)
-(setq cursor-type 'bar)
-
-(blink-cursor-mode t)
-;; highlight current line
-(global-hl-line-mode t)
-
-;; Turn off mouse interface early in startup to avoid momentary
-;; display
-;; (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-(set-cursor-color "black")
-
-;; Font settings
-;; (set-default-font "Consolas for Powerline FixedD")
-(set-face-attribute 'default nil :height 140) ;; font-size: 18px
-
-(setq default-frame-alist
-      '((cursor-color . "red")))
-
-;; Highlight incremental search
-(setq search-highlight t)
-(transient-mark-mode t)
-
-(global-visual-line-mode 1)
-
-(display-time)
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Enable copy and pasting from clipboard
-(setq x-select-enable-clipboard t)
-
-(global-set-key [f2] 'comment-region)
-(global-set-key [f3] 'uncomment-region)
-(global-set-key [f5] 'indent-region)
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-l" 'end-of-line)
-
-(global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-xt" 'select-frame-by-name)
-
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
-(global-set-key "\C-xy" 'revert-buffer)
-
-
-;; Emacs backups!
-;; disable backups at all:
-;; (setq make-backup-files nil)
-
-(setq backup-directory-alist `(("." . "~/.emacs.d/.backups")))
-;; how Emacs might create your backup files --> always make backups by copying
-(setq backup-by-copying t)
-
-(setq delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2
-      version-control t)
-
-;; Disable backups
-;; (setq backup-inhibited t)
-;;disable auto save
-(setq auto-save-default nil)
-
+;;*********************
 
 ;;some custom functions, stolen for internet
 (defun geosoft-forward-word ()
@@ -124,19 +30,21 @@
 (global-set-key [C-right] 'geosoft-forward-word)
 (global-set-key [C-left] 'geosoft-backward-word)
 
+;;*********************
+
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "/")
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
-(require 'feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+;;*********************
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-(setq path-to-ctags "/usr/local/bin/ctags") ;; <- you're ctags path here
+;;*********************
 
+;; Create TAGS using CTags
 (defun create-tags (dir-name)
   "Create tags file."
   (interactive "DDirectory: ")
@@ -144,14 +52,7 @@
    (format "%s -f %s/TAGS -e -R %s" path-to-ctags dir-name dir-name))
   )
 
-(global-set-key "\C-ct" 'visit-tags-table)
-(global-set-key "\C-cd" 'create-tags)
-
-(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-C-<down>") 'shrink-window)
-(global-set-key (kbd "S-C-<up>") 'enlarge-window)
-
+;;*********************
 
 (require 'ansi-color)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -163,6 +64,7 @@
 
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+;;*********************
 
 ;; Projectile Mode is one among many ways of handling projects in Emacs
 (require 'grizzl)
@@ -174,6 +76,8 @@
 ;; Press Command-b for fuzzy switch buffer
 (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
 
+;;*********************
+
 ;; Fix typos in code comments, strings etc.
 ;; (require 'flyspell)
 ;; (setq flyspell-issue-message-flg nil)
@@ -184,6 +88,8 @@
 ;;           (lambda () (flyspell-prog-mode)))
 ;; flyspell mode breaks auto-complete mode without this.
 ;; (ac-flyspell-workaround)
+
+;;*********************
 
 ;; Activate minor-major modes
 (add-hook 'coffee-mode-hook
@@ -246,15 +152,26 @@
         (pop-to-buffer (ruby-compilation-do filename command)))
     (ruby-compilation-this-buffer)))
 
+;;*********************
+
+;; Start emmet mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'html-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode)
+
+;;*********************
+
 ;; Activate enclose mode
 (enclose-global-mode t)
+
+;;*********************
 
 ;; Maximize the Emacs frame and stay within the display resolution.
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 
-;; Load color theme
-(load-theme 'soft-morning t)
+;;*********************
 
 ;; Recent file history (http://stackoverflow.com/a/3527488/1052356)
 (require 'recentf)
@@ -262,12 +179,10 @@
 (global-set-key "\C-xf" 'recentf-open-files)
 (setq recentf-auto-cleanup 'never)
 
+;;*********************
 
-;; Twittering Mode Configurations (twit)
-(require 'twittering-mode)
-(setq twittering-use-master-password t)
-(setq twittering-icon-mode t)
-(setq twittering-convert-fix-size 32) ;; default is 48
-(setq twittering-use-icon-storage t) ;; locally cache icons
-(twittering-enable-unread-status-notifier)
-(setq twittering-retweet-format '(nil _ " %u RT @%s: %t"))
+;; Active save-visited-files mode
+(require 'save-visited-files)
+(turn-on-save-visited-files-mode)
+
+;;*********************
