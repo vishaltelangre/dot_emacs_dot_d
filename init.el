@@ -15,7 +15,7 @@
 (load '"auto-complete-mode.el")
 (load '"web-mode.el")
 (load '"ibus-mode.el")
-(load '"twittering-mode.el")
+(load '"twittering_mode.el")
 (load '"common.el")
 
 (load '"extra.el")

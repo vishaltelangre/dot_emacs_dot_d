@@ -16,3 +16,4 @@ projectile.cache
 .cask
 .cask/*
 emacs-visited-files
+session.*
