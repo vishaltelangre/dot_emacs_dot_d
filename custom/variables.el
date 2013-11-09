@@ -152,3 +152,8 @@
 (global-git-gutter-mode +1)
 
 ;;*********************
+
+;; Increase nesting stack level
+(setq max-lisp-eval-depth 10000)
+
+;;*********************

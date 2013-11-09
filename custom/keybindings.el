@@ -18,9 +18,9 @@
 ;;*********************
 
 (global-set-key "\C-w" 'kill-region)
-(global-set-key ("\C-h") 'delete-backward-char)
+(global-set-key "\C-h" 'delete-backward-char)
 ;; now fix ctrl+h for help
-(global-set-key ("\C-?") 'help-command)
+(global-set-key "\C-?" 'help-command)
 (global-set-key "\C-x\C-k" 'backward-kill-word)
 
 (global-set-key "\C-l" 'end-of-line)
