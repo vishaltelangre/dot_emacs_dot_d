@@ -1,4 +1,4 @@
-(setq enh-ruby-program "/home/vishal/.rvm/bin/ruby-1.9.3-p194@rails3tutorial2ndEd")
+;; (setq enh-ruby-program "/home/vishal/.rvm/rubies/ruby-1.9.3-p374/bin/ruby")
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))

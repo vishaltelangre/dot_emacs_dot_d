@@ -1,2 +1,5 @@
 ;; Font settings
 (set-default-font "Consolas for Powerline Fixed")
+
+;; Set ruby bin path here
+(setq enh-ruby-program "/home/vishal/.rvm/rubies/ruby-1.9.3-p374/bin/ruby")
